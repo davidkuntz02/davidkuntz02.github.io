@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html>
-
 <head>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="script/js" href="script.js"> -->
+    <link rel="script/js" href="script.js">
 </head>
 
 <body>
     <span id="display-toggle">Dark Mode</span>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>website under construction. expect great things</h1>
-        </div>
+        </header>
     </div>
 
     <script>
-        console.log("sanity check");
-        document.getElementById("display-toggle").onclick = function () {
-            console.log("dark now");
-            document.getElementsByTagName("body")[0].classList.toggle("dark");
-            // document.getElementById("display-toggle").innerText = "Light mode";
+        const toggle = document.getElementById("display-toggle");
+        const body = document.getElementsByTagName("body")[0];
+        
+        toggle.onclick = function () {
+            body.classList.toggle("dark");
+            toggle.innerText == "Light mode"?
+            toggle.innerText = "Dark mode": toggle.innerText = "Light mode";
         };
     </script>
 </body>

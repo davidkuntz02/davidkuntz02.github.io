@@ -1,18 +1,29 @@
 :root{
-    --primary-color: #90ee90;
-    --primary-text: #444;
+    --primary-color: #d67733; /*orange*/
+    --secondary-color: #630436; /*purple*/
+    --tertiary-color: #80ff80; /*green*/
+    --dark-gray: #222;
 }
 body{
-    color: var(--primary-text);
+    color: var(--dark-gray);
     background-color: var(--primary-color);
     font-family: Consolas, sans-serif;
 }
 .container{
     display: flex;
+    align-items: center;
+}
+header{
+    align-self: center;
+}
+header{
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    padding: 1em;
 }
 /*dark mode*/
 .dark {
     color: var(--primary-color);
-    background-color: var(--primary-text);
+    background-color: var(--dark-gray);
 }
 /*responsive*/
