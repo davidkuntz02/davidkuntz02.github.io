@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="script/js" href="script.js"> -->
 </head>
+
 <body>
-    <center>website under construction. expect great things</center>
+    <span id="display-toggle">Dark Mode</span>
+    <div class="container">
+        <div class="header">
+            <h1>website under construction. expect great things</h1>
+        </div>
+    </div>
+
+    <script>
+        console.log("sanity check");
+        document.getElementById("display-toggle").onclick = function () {
+            console.log("dark now");
+            document.getElementsByTagName("body")[0].classList.toggle("dark");
+            // document.getElementById("display-toggle").innerText = "Light mode";
+        };
+    </script>
 </body>
 </html>
