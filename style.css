@@ -108,7 +108,10 @@ footer a{
 }
 
 /* mobile responsive */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
+    body{
+        font-size: 8vw;
+    }
     header{
         padding: 0;
     }
