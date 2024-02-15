@@ -111,7 +111,8 @@ footer a{
 }
 
 /* mobile responsive 750px*/
-@media screen and (max-width: 4in) {
+/* couldn't get this to work on my own cell phone... */
+@media screen and (max-width: 750px) {
     body{
         font-size: 8vw;
     }
