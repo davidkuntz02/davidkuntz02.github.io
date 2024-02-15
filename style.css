@@ -1,3 +1,4 @@
+/* color palette */
 :root{
     --dark-gray: #222;
     --off-white: #ddd;
@@ -6,6 +7,7 @@
     --light-purple: #f0b8fc;
     --dark-purple: #630436;
 }
+/* common elements */
 body{
     color: var(--dark-green);
     background-color: var(--off-white);
@@ -26,6 +28,8 @@ img{
     max-width: 100%;
     height: auto;
 }
+/* attempted to organize the rulesets */
+/* according to the order the elements appear in the page */
 #container{
     display: flex;
     flex-direction: column;
@@ -43,7 +47,6 @@ header, footer{
 #content, nav{
     width: 90%;
 }
-/* text content */
 nav, article, section{
     display: flex;
 }
@@ -108,7 +111,7 @@ footer a{
 }
 
 /* mobile responsive */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     body{
         font-size: 8vw;
     }

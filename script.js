@@ -1,4 +1,4 @@
-console.log("im in");
+//script for dark mode functionality across pages
 const toggel = document.getElementById("display-toggle");
 const body = document.body;
 
