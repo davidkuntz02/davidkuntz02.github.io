@@ -110,8 +110,8 @@ footer a{
     color: var(--light-purple);
 }
 
-/* mobile responsive */
-@media screen and (max-width: 750px) {
+/* mobile responsive 750px*/
+@media screen and (max-width: 4in) {
     body{
         font-size: 8vw;
     }
