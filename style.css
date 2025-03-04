@@ -1,16 +1,23 @@
+/* TODO: 
+    - Fix header to top of page
+    - A terminal that can navigate the website like a filesystem...
+*/
+
 /* color palette */
 :root{
-    --dark-gray: #222;
-    --off-white: #ddd;
-    --light-green: #4AF626;
-    --dark-green: #456404;
-    --light-purple: #f0b8fc;
-    --dark-purple: #630436;
+    --dark-60: #222;
+    --light-60: #ddd;
+    --dark-text: #4AF626;
+    --light-text: #456404;
+    --dark-10: #f0b8fc;
+    --light-10: #630436;
+    --dark-30: #333;
+    --light-30: #eee;
 }
 /* common elements */
 body{
-    color: var(--dark-green);
-    background-color: var(--off-white);
+    color: var(--light-text);
+    background-color: var(--light-60);
     font-family: Consolas, sans-serif;
     margin: 0;
     overflow-x: hidden;
@@ -27,6 +34,9 @@ img{
     width: 100%;
     max-width: 100%;
     height: auto;
+}
+h2, p {
+    margin: 0.3em 0 0.4em;
 }
 /* attempted to organize the rulesets */
 /* according to the order the elements appear in the page */
@@ -45,7 +55,7 @@ header, footer{
     flex-direction: column;
 }
 #content, nav{
-    width: 90%;
+    width: 70%;
 }
 nav, article, section{
     display: flex;
@@ -54,13 +64,13 @@ nav, article, section{
     padding: 1em 0;
 }
 header h1{
-    margin-left: 5%;
+    margin-left: 15%;
 }
 nav{
     flex-direction: row;
     justify-content: space-around;
     padding: 0.5em;
-    border-bottom: 2px solid var(--dark-purple);
+    border-bottom: 2px solid var(--light-10);
 }
 /* sections flex to side, articles flex down */
 article{
@@ -68,13 +78,14 @@ article{
     flex-direction: column;
     min-width: 25%;
     text-align: center;
+    /* background-color: var(--light-30); */
 }
 article h3, article h4{
     text-align: center;
 }
 section{
     justify-content: space-between;
-    border-bottom: 1px solid var(--dark-purple);
+    border-bottom: 2px solid var(--light-10);
 }
 section article{
     text-align: left;
@@ -86,14 +97,14 @@ section:last-of-type{
     border: 0;
 }
 footer{
-    padding: 2em;
-    background-color: var(--dark-purple);
-    color: var(--dark-green);
+    padding: 1em;
+    background-color: var(--light-10);
+    color: var(--light-text);
     margin-top: auto;
     text-align: center;
 }
 footer a{
-    color: var(--light-green);
+    color: var(--dark-text);
 }
 #display-toggle{
     position: fixed;
@@ -101,14 +112,14 @@ footer a{
     right: 0;
 }
 
-/* -- dark mode -- */
+/* -- dark mode --
 .dark, .dark h1 {
     color: var(--light-green);
     background-color: var(--dark-gray);
 }
 .dark a, footer{
     color: var(--light-purple);
-}
+} */
 
 /* mobile responsive 750px*/
 /* couldn't get this to work on my own cell phone... */
@@ -118,6 +129,10 @@ footer a{
     }
     header{
         padding: 0;
+        text-align: center;
+    }
+    header h1{
+        margin-left: 0;
     }
     #content, nav, section, article{
         width: 100%;
@@ -128,15 +143,35 @@ footer a{
         padding: 1em;
     }
     nav{
-        background-color: var(--dark-green);
+        background-color: var(--light-text);
         border:0;
     }
     a{
         margin: 1em;
     }.dark nav {
-        background-color: var(--dark-purple);
+        background-color: var(--light-10);
     }
     li{  
         list-style-position: inside;
     }
+    footer a{
+        display: none;
+    }
+}
+
+/* vanilla css dark mode media query */
+@media (prefers-color-scheme: dark){
+    body, h1{
+        color: var(--dark-text);
+        background-color: var(--dark-60);
+    }
+    a, footer{
+        color: var(--dark-10);
+    }
+    /* article, section, header, h1{
+        background-color: var(--dark-30);
+    }
+    header{
+        border-bottom: 2px solid var(--light-10);
+    } */
 }
