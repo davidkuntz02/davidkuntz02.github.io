@@ -1,6 +1,7 @@
 /* TODO: 
-    - Fix header to top of page
+    - Fix header to top of page ?
     - details tag implementation
+    - finally reimplement dark/light mode toggle 
     - A terminal that can navigate the website like a filesystem...
 */
 
@@ -12,7 +13,7 @@
     --light-text: #456404;
     --dark-10: #f0b8fc;
     --light-10: #630436;
-    --dark-30: #333;
+    --dark-30: #292929;
     --light-30: #eee;
 }
 /* common elements */
@@ -40,8 +41,15 @@ img{
 h2, p {
     margin: 0.3em 0 0.4em;
 }
-summary{
+details {
+    padding-left: 1em;
+}
+summary {
     list-style-position: outside;
+}
+iframe {
+    width: 100%;
+    height: 90vh;
 }
 /* attempted to organize the rulesets */
 /* according to the order the elements appear in the page */
@@ -85,7 +93,6 @@ nav{
 section{
     padding: 1em;
     min-width: 25%;
-    text-align: center;
     background-color: var(--light-30);
     margin: 1em 0;
 }
@@ -100,9 +107,9 @@ section .row{
     justify-content: space-between;
 }
 /* TODO: REFACTOR THIS SHIT */
-article section{
+/* article section{
     text-align: left;
-}
+} */
 /* article section{
     align-items: center;
 } */
