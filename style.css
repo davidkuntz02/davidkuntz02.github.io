@@ -1,25 +1,32 @@
 /* TODO: 
     - Fix header to top of page ?
-    - details tag implementation
+    - details tag implementation (what?)
     - finally reimplement dark/light mode toggle 
-    - A terminal that can navigate the website like a filesystem...
 */
 
 /* color palette */
 :root{
-    --dark-60: #222;
+    /* --dark-60: #222;
     --light-60: #ddd;
     --dark-text: #4AF626;
     --light-text: #456404;
     --dark-10: #f0b8fc;
     --light-10: #630436;
     --dark-30: #292929;
-    --light-30: #eee;
+    --light-30: #eee; */
+    color-scheme: light dark;
+    --60: light-dark(#ddd,#222);
+    --30: light-dark(#eee,#292929);
+    --10: light-dark(#f0b8fc,#630436);
+    --text: light-dark(#456404,#4af626);
 }
 /* common elements */
+/* * {
+    margin:0;
+} */
 body{
-    color: var(--light-text);
-    background-color: var(--light-60);
+    color: var(--text);
+    background-color: var(--60);
     font-family: Consolas, sans-serif;
     margin: 0;
     overflow-x: hidden;
@@ -38,14 +45,15 @@ img{
     max-height: 95vh;
     margin: auto;
 }
-h2, p {
-    margin: 0.3em 0 0.4em;
+h2, h4 {
+    margin: 0.3em 0 0;
 }
 details {
     padding-left: 1em;
 }
 summary {
     list-style-position: outside;
+    cursor: pointer;
 }
 iframe {
     width: 100%;
@@ -62,13 +70,14 @@ header, footer{
 }
 #content{
     padding: 0;
+    div{   
+        padding: 1em 0;
+    }
 }
 #content, nav{
     width: 70%;
 }
-#content div{
-    padding: 1em 0;
-}
+
 /* make flex direction column by default, row when specified */
 article, section, details, #container, #content{
     display: flex;
@@ -77,73 +86,65 @@ article, section, details, #container, #content{
 nav, .row{
     display: flex;
     flex-direction: row;
-    padding-top: 0;
-    padding-bottom: 0;
 }
-header h1{
-    margin-left: 15%;
-}
+header{
+    h1,h3{
+        margin: 1em 0 1em 15%;
+    }
+} 
 nav{
     justify-content: space-around;
     padding: 0.5em;
-    border-bottom: 2px solid var(--light-10);
+    border-bottom: 2px solid var(--10);
 }
-/* sections flex row, articles flex column */
-/* switch article and section */
 section{
     padding: 1em;
     min-width: 25%;
-    background-color: var(--light-30);
-    margin: 1em 0;
+    background-color: var(--30);
+    margin-bottom: 1em;
+    .row{
+        justify-content: space-between;
+    }
+    section{
+        padding: 0.5em;
+        margin: 0;
+    }
 }
 section h3, section h4, article h1{
     text-align: center;
 }
 article{
-    border-bottom: 2px solid var(--light-10);
-    padding: 1em 0;
-}
-section .row{
-    justify-content: space-between;
-}
-/* TODO: REFACTOR THIS SHIT */
-/* article section{
-    text-align: left;
-} */
-/* article section{
-    align-items: center;
-} */
-article:last-of-type{
-    border: 0;
+    border-bottom: 2px solid var(--10);
+    padding: 1em 0 0;
+    &:last-of-type{
+        border: 0;
+    }
 }
 footer{
     padding: 1em;
-    background-color: var(--light-10);
-    color: var(--light-text);
+    background-color: var(--10);
+    color: var(--text);
     margin-top: auto;
     text-align: center;
-}
-footer a{
-    color: var(--dark-text);
+    a{
+        color: var(--text);
+    }
 }
 #display-toggle{
     position: fixed;
     top:0;
     right: 0;
 }
-
-/* -- dark mode --
-.dark, .dark h1 {
-    color: var(--light-green);
-    background-color: var(--dark-gray);
-}
-.dark a, footer{
-    color: var(--light-purple);
-} */
-
-/* mobile responsive 750px*/
+/* mobile responsive 800px*/
 /* couldn't get this to work on my own cell phone... */
-@media (max-width: 750px) {
+@media (width <= 800px) {
+    *{
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100svw;
+    }
     body{
         font-size: 8vw;
     }
@@ -159,18 +160,21 @@ footer a{
         flex-direction: column;
         align-items: center;
     }
+    img{
+        width: max-content;
+    }
     article{
         padding: 1em;
     }
     nav{
-        background-color: var(--light-text);
+        background-color: var(--10);
         border:0;
     }
     a{
         margin: 1em 0;
     }
     .dark nav {
-        background-color: var(--light-10);
+        background-color: var(--10);
     }
     li{  
         list-style-position: inside;
@@ -184,7 +188,7 @@ footer a{
     }
 }
 
-/* vanilla css dark mode media query */
+/* vanilla css dark mode media query
 @media (prefers-color-scheme: dark){
     body, h1{
         color: var(--dark-text);
@@ -200,5 +204,5 @@ footer a{
     /*
     header{
         border-bottom: 2px solid var(--light-10);
-    } */
-}
+    }
+} */
